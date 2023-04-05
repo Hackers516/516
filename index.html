@@ -1,106 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <title>Links website</title>
-    <style>
 
-      body {
-          background-image: url(https://www.w3schools.com/howto/img_link_tree_template1_bg.jpg); /* The image used for background*/
-          background-repeat: no-repeat; /* Do not repeat the image */
-          background-position: center; /* Center the image */
-          background-size: cover; /* Resize the background image to cover the entire container */
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>516</title>
+</head>
 
-      .container {
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .image-container {
-        text-align: center;
-        width: 100%;
-      }
-
-      .links-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .link {
-        min-width: 50% !important;
-      }
-
-      @media (min-width: 1200px) {
-        .container {
-          max-width: 1140px;
-        }
-      }
-      @media (min-width: 992px) {
-        .container {
-          max-width: 960px;
-        }
-      }
-      @media (min-width: 768px) {
-      .container {
-          max-width: 720px;
-        }
-
-      .link {
-          width: 100%;
-        }
-      }
-      @media (min-width: 576px) {
-      .container {
-          max-width: 540px;
-        }
-      }
-
-      .w3-purple, .w3-hover-purple:hover {
-        color: #fff!important;
-        background-color: rgba(156, 39, 176, 0.6) !important;
-      }
-
-    </style>
-  </head>
-
-  <body class="w3-white">
-    <!-- Content container -->
+<body>
     <div class="container">
-      <!-- Image and name container. Change to your picture here. -->
-      <div class="image-container">
-        <img
-          src="516.png"
-          class="w3-margin"
-          alt="Person"
-          max-width="100%"
-          height="150px"
-          style="border-radius: 50%"
-        />
-        <div class="w3-text-white">
-          <p class="w3-text-white w3-large"> Welcome to <span class="w3-tag w3-large w3-round w3-black w3-text-white"><strong>516</strong></span>link site!
-          </p>
-          <p class="w3-large"><strong>See what I am up to.</strong></p>
+        <div class="shape">
+            <div class="image"></div>
         </div>
-
-        <!-- Links section 1. Replace the # inside of the "" with your links. -->
-        <div class="links-container">
-          <a href="https://www.facebook.com/profile.php?id=100089960097573" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank"><i class="fab fa-facebook"></i>Facebook</a>
-          <a href="https://www.instagram.com/516_hackers" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
-          <a href="https://github.com/Hackers516" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank"><i class="fab fa-github"></i>Github</a>
-          <a href="https://www.youtube.com/channel/UCSW8o8mNjB8nYehdV4qcBYg" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank"><i class="fa fa-youtube"></i>Youtube</a>
+        <h3>Muhammad Muzamil</h3>
+        <h3 class="title">HACKERS</h3>
+        <p>516 Hakers Group Not illegal Only Cyber Security & Bug Finder</p>
+        <div class="icons">
+           <a href="https://www.facebook.com/profile.php?id=100089960097573"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/516_hackers"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+           <a href="https://www.youtube.com/channel/UCSW8o8mNjB8nYehdV4qcBYg"> <i class="fa fa-youtube" aria-hidden="true"></i></a>
+           <a href="https://github.com/Hackers516/516"><i class="fa fa-github" aria-hidden="true"></i></a>
         </div>
-      </div>
     </div>
+</body>
 
-
-  </body>
 </html>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    height: 450px;
+    width: 300px;
+    box-shadow: 0 10px 20px black;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Abel', sans-serif;
+}
+
+.image {
+    height: 100px;
+    width: 100px;
+    background-image: url('516.png');
+    background-size: cover;
+    border-radius: 50%;
+    border: 8px solid white;
+    position: relative;
+    top: 200px;
+    margin-left: 170px;
+    box-shadow: 0 2px 15px rgb(58, 54, 54);
+    transform: rotate(-30deg);
+}
+
+.shape {
+    height: 250px;
+    width: 400px;
+    background-color: black;
+    margin-left: -20px;
+    position: relative;
+    top: -80px;
+    box-shadow: 0 2px 15px black;
+    transform: rotate(25deg);
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title {
+    color: rgb(105, 100, 109);
+}
+
+p {
+    padding-left: 30px;
+    padding-right: 30px;
+    color: rgb(105, 100, 109);
+}
+
+.icons {
+    margin-top: 15px;
+}
+
+.icons i {
+    margin-left: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+    color: rgb(40, 163, 194);
+    ;
+}
+
+.icons i:hover {
+    transform: scale(1.1);
+    color: rgb(18, 192, 235);
+}
+</style>
