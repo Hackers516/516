@@ -131,6 +131,16 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 255, 157, 0.3);
         }
+        
+        .scam-alert {
+            animation: pulse-alert 2s infinite;
+        }
+        
+        @keyframes pulse-alert {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
     </style>
 </head>
 <body class="min-h-screen text-white font-sans overflow-x-hidden">
@@ -169,6 +179,30 @@
                 </a>
             </div>
         </header>
+        
+        <!-- Scam Alert Banner -->
+        <div class="bg-gradient-to-r from-red-900 to-cyber-darker rounded-xl p-6 mb-8 border border-red-500 border-opacity-50 scam-alert">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                    <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-exclamation-triangle text-2xl"></i>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl font-orbitron mb-2">🔍 516 HACKERS: FREE SCAM INVESTIGATION & PAYMENT RECOVERY</h2>
+                    <p class="font-tech text-lg">
+                        Have you been scammed online? Lost access to your accounts or funds? We've got you covered! ✅ 
+                        Our expert cyber team provides FREE scam investigation, payment recovery, and account retrieval services. 
+                        No hidden charges—just pure help!
+                    </p>
+                    <div class="mt-4">
+                        <a href="mailto:recovery@516hackers.com" class="inline-block px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg font-orbitron transition-all duration-300">
+                            REPORT A SCAM NOW
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <!-- Main Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
@@ -225,11 +259,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-cyber-darker bg-opacity-80 backdrop-blur-lg rounded-xl border border-cyber-green border-opacity-20 p-6 shadow-lg shadow-cyber-green/10">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-orbitron text-cyber-green">PENTESTING</h3>
-                            <i class="fas fa-shield-alt text-cyber-green"></i>
+                            <h3 class="font-orbitron text-cyber-green">RECOVERED FUNDS</h3>
+                            <i class="fas fa-coins text-cyber-green"></i>
                         </div>
-                        <div class="text-3xl font-bold mb-2">128</div>
-                        <div class="text-xs uppercase tracking-wider text-gray-400">Completed Projects</div>
+                        <div class="text-3xl font-bold mb-2">$128K</div>
+                        <div class="text-xs uppercase tracking-wider text-gray-400">For Victims</div>
                         <div class="w-full bg-cyber-dark rounded-full h-1.5 mt-3">
                             <div class="bg-cyber-green h-1.5 rounded-full" style="width: 75%"></div>
                         </div>
@@ -237,11 +271,11 @@
                     
                     <div class="bg-cyber-darker bg-opacity-80 backdrop-blur-lg rounded-xl border border-cyber-blue border-opacity-20 p-6 shadow-lg shadow-cyber-blue/10">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-orbitron text-cyber-blue">BUG BOUNTY</h3>
-                            <i class="fas fa-bug text-cyber-blue"></i>
+                            <h3 class="font-orbitron text-cyber-blue">SCAM CASES</h3>
+                            <i class="fas fa-user-shield text-cyber-blue"></i>
                         </div>
                         <div class="text-3xl font-bold mb-2">42</div>
-                        <div class="text-xs uppercase tracking-wider text-gray-400">Critical Bugs Found</div>
+                        <div class="text-xs uppercase tracking-wider text-gray-400">Investigated</div>
                         <div class="w-full bg-cyber-dark rounded-full h-1.5 mt-3">
                             <div class="bg-cyber-blue h-1.5 rounded-full" style="width: 60%"></div>
                         </div>
@@ -249,92 +283,201 @@
                     
                     <div class="bg-cyber-darker bg-opacity-80 backdrop-blur-lg rounded-xl border border-cyber-purple border-opacity-20 p-6 shadow-lg shadow-cyber-purple/10">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-orbitron text-cyber-purple">TRAINING</h3>
-                            <i class="fas fa-graduation-cap text-cyber-purple"></i>
+                            <h3 class="font-orbitron text-cyber-purple">ACCOUNTS SAVED</h3>
+                            <i class="fas fa-lock text-cyber-purple"></i>
                         </div>
                         <div class="text-3xl font-bold mb-2">316</div>
-                        <div class="text-xs uppercase tracking-wider text-gray-400">Students Trained</div>
+                        <div class="text-xs uppercase tracking-wider text-gray-400">From Hackers</div>
                         <div class="w-full bg-cyber-dark rounded-full h-1.5 mt-3">
                             <div class="bg-cyber-purple h-1.5 rounded-full" style="width: 85%"></div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Recent Activity -->
+                <!-- Recent Cases -->
                 <div class="bg-cyber-darker bg-opacity-80 backdrop-blur-lg rounded-xl border border-cyber-green border-opacity-20 p-6 shadow-lg shadow-cyber-green/10">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-orbitron text-xl">RECENT ACTIVITY</h3>
-                        <span class="font-tech text-cyber-green text-sm terminal-cursor">live_feed.exe</span>
+                        <h3 class="font-orbitron text-xl">RECENT RECOVERY CASES</h3>
+                        <span class="font-tech text-cyber-green text-sm terminal-cursor">active_investigations.log</span>
                     </div>
                     
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 rounded-full bg-cyber-green bg-opacity-10 border border-cyber-green border-opacity-30 flex items-center justify-center mr-4 mt-1">
-                                <i class="fas fa-code text-xs text-cyber-green"></i>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Case 1 -->
+                        <div class="bg-cyber-dark bg-opacity-50 rounded-lg p-4 border border-cyber-green border-opacity-20 case-card transition-all duration-300">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 bg-cyber-green bg-opacity-10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-bitcoin text-cyber-green"></i>
+                                </div>
+                                <h4 class="font-orbitron">CRYPTO SCAM RECOVERY</h4>
                             </div>
-                            <div>
-                                <p class="font-medium">Discovered XSS vulnerability in Acme Corp</p>
-                                <p class="text-sm text-gray-400 font-tech">2 hours ago <span class="text-cyber-green ml-2">#bugbounty</span></p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 rounded-full bg-cyber-blue bg-opacity-10 border border-cyber-blue border-opacity-30 flex items-center justify-center mr-4 mt-1">
-                                <i class="fas fa-shield-alt text-xs text-cyber-blue"></i>
-                            </div>
-                            <div>
-                                <p class="font-medium">Completed penetration test for FinSecure</p>
-                                <p class="text-sm text-gray-400 font-tech">1 day ago <span class="text-cyber-blue ml-2">#pentest</span></p>
+                            <p class="text-sm text-gray-300 mb-3">
+                                Recovered $28,500 in Bitcoin for a victim of a fake investment platform. Traced transactions to exchange and froze assets.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-tech text-cyber-green">Completed: 2 days ago</span>
+                                <span class="text-xs px-2 py-1 bg-cyber-green bg-opacity-20 rounded-full">CRYPTO</span>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 rounded-full bg-cyber-purple bg-opacity-10 border border-cyber-purple border-opacity-30 flex items-center justify-center mr-4 mt-1">
-                                <i class="fas fa-chalkboard-teacher text-xs text-cyber-purple"></i>
+                        <!-- Case 2 -->
+                        <div class="bg-cyber-dark bg-opacity-50 rounded-lg p-4 border border-cyber-blue border-opacity-20 case-card transition-all duration-300">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 bg-cyber-blue bg-opacity-10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-credit-card text-cyber-blue"></i>
+                                </div>
+                                <h4 class="font-orbitron">BANK PHISHING CASE</h4>
                             </div>
-                            <div>
-                                <p class="font-medium">Conducted workshop on Ethical Hacking</p>
-                                <p class="text-sm text-gray-400 font-tech">3 days ago <span class="text-cyber-purple ml-2">#training</span></p>
+                            <p class="text-sm text-gray-300 mb-3">
+                                Stopped $15,000 wire transfer after identifying phishing attack. Secured compromised accounts and implemented 2FA.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-tech text-cyber-blue">Completed: 1 week ago</span>
+                                <span class="text-xs px-2 py-1 bg-cyber-blue bg-opacity-20 rounded-full">PHISHING</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Case 3 -->
+                        <div class="bg-cyber-dark bg-opacity-50 rounded-lg p-4 border border-cyber-purple border-opacity-20 case-card transition-all duration-300">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 bg-cyber-purple bg-opacity-10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-shopping-cart text-cyber-purple"></i>
+                                </div>
+                                <h4 class="font-orbitron">E-COMMERCE SCAM</h4>
+                            </div>
+                            <p class="text-sm text-gray-300 mb-3">
+                                Exposed fake online store, recovered $3,200 for multiple victims. Provided evidence to law enforcement.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-tech text-cyber-purple">Completed: 2 weeks ago</span>
+                                <span class="text-xs px-2 py-1 bg-cyber-purple bg-opacity-20 rounded-full">FRAUD</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Case 4 -->
+                        <div class="bg-cyber-dark bg-opacity-50 rounded-lg p-4 border border-cyber-pink border-opacity-20 case-card transition-all duration-300">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 bg-cyber-pink bg-opacity-10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-gamepad text-cyber-pink"></i>
+                                </div>
+                                <h4 class="font-orbitron">ACCOUNT HIJACKING</h4>
+                            </div>
+                            <p class="text-sm text-gray-300 mb-3">
+                                Recovered valuable gaming account worth $5,000+ after social engineering attack. Secured with new protections.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-tech text-cyber-pink">Completed: 3 weeks ago</span>
+                                <span class="text-xs px-2 py-1 bg-cyber-pink bg-opacity-20 rounded-full">HIJACKING</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Tools Section -->
+                <!-- Recovery Process Section -->
                 <div class="bg-cyber-darker bg-opacity-80 backdrop-blur-lg rounded-xl border border-cyber-blue border-opacity-20 p-6 shadow-lg shadow-cyber-blue/10">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-orbitron text-xl">HACKING TOOLS</h3>
+                        <h3 class="font-orbitron text-xl">OUR RECOVERY PROCESS</h3>
                         <span class="font-tech text-cyber-blue text-sm">v3.1.4</span>
                     </div>
                     
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div class="bg-cyber-dark rounded-lg p-4 text-center hover:bg-cyber-green hover:bg-opacity-10 transition-all duration-300 border border-cyber-green border-opacity-10">
                             <div class="w-12 h-12 bg-cyber-green bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-network-wired text-cyber-green"></i>
+                                <span class="text-cyber-green font-orbitron">1</span>
                             </div>
-                            <p class="font-orbitron text-sm">NETWORK SCAN</p>
+                            <p class="font-orbitron text-sm">REPORT</p>
+                            <p class="text-xs text-gray-400 mt-1">Submit scam details</p>
                         </div>
                         
                         <div class="bg-cyber-dark rounded-lg p-4 text-center hover:bg-cyber-blue hover:bg-opacity-10 transition-all duration-300 border border-cyber-blue border-opacity-10">
                             <div class="w-12 h-12 bg-cyber-blue bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-lock-open text-cyber-blue"></i>
+                                <span class="text-cyber-blue font-orbitron">2</span>
                             </div>
-                            <p class="font-orbitron text-sm">CRACKER</p>
+                            <p class="font-orbitron text-sm">ANALYZE</p>
+                            <p class="text-xs text-gray-400 mt-1">Investigate the case</p>
                         </div>
                         
                         <div class="bg-cyber-dark rounded-lg p-4 text-center hover:bg-cyber-purple hover:bg-opacity-10 transition-all duration-300 border border-cyber-purple border-opacity-10">
                             <div class="w-12 h-12 bg-cyber-purple bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-eye text-cyber-purple"></i>
+                                <span class="text-cyber-purple font-orbitron">3</span>
                             </div>
-                            <p class="font-orbitron text-sm">SNIFFER</p>
+                            <p class="font-orbitron text-sm">TRACE</p>
+                            <p class="text-xs text-gray-400 mt-1">Follow digital trail</p>
                         </div>
                         
                         <div class="bg-cyber-dark rounded-lg p-4 text-center hover:bg-cyber-pink hover:bg-opacity-10 transition-all duration-300 border border-cyber-pink border-opacity-10">
                             <div class="w-12 h-12 bg-cyber-pink bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-bolt text-cyber-pink"></i>
+                                <span class="text-cyber-pink font-orbitron">4</span>
                             </div>
-                            <p class="font-orbitron text-sm">EXPLOIT</p>
+                            <p class="font-orbitron text-sm">RECOVER</p>
+                            <p class="text-xs text-gray-400 mt-1">Return your assets</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonials -->
+        <div class="bg-cyber-darker bg-opacity-80 backdrop-blur-lg rounded-xl border border-cyber-purple border-opacity-20 p-6 shadow-lg shadow-cyber-purple/10 mb-12">
+            <h3 class="font-orbitron text-xl mb-6 text-center">VICTIM TESTIMONIALS</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-cyber-dark bg-opacity-50 rounded-lg p-6 border border-cyber-green border-opacity-20">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyber-green to-cyber-blue mr-4"></div>
+                        <div>
+                            <h4 class="font-orbitron">Sarah K.</h4>
+                            <p class="text-xs text-cyber-green font-tech">Crypto Scam Victim</p>
+                        </div>
+                    </div>
+                    <p class="text-sm italic">
+                        "I thought my $15,000 was gone forever after falling for a fake crypto exchange. 516 Hackers tracked the funds and recovered 90% within 3 weeks. Lifesavers!"
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-cyber-dark bg-opacity-50 rounded-lg p-6 border border-cyber-blue border-opacity-20">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyber-blue to-cyber-purple mr-4"></div>
+                        <div>
+                            <h4 class="font-orbitron">Michael T.</h4>
+                            <p class="text-xs text-cyber-blue font-tech">Account Hacking</p>
+                        </div>
+                    </div>
+                    <p class="text-sm italic">
+                        "My business email was compromised and hackers were diverting payments. 516 not only recovered access but implemented security measures to prevent future attacks."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-cyber-dark bg-opacity-50 rounded-lg p-6 border border-cyber-purple border-opacity-20">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyber-purple to-cyber-pink mr-4"></div>
+                        <div>
+                            <h4 class="font-orbitron">Lisa M.</h4>
+                            <p class="text-xs text-cyber-purple font-tech">Romance Scam</p>
+                        </div>
+                    </div>
+                    <p class="text-sm italic">
+                        "After sending $8,000 to someone I met online, I realized it was a scam. 516 Hackers exposed the operation and helped me recover a portion of my money."
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400"></i>
                     </div>
                 </div>
             </div>
@@ -370,6 +513,11 @@
                 <p class="font-tech text-xs text-gray-500 terminal-cursor">
                     root@516:~$ Ethical hacking only - No illegal activities will be tolerated
                 </p>
+            </div>
+            
+            <div class="mt-6 text-center text-xs text-gray-500">
+                <p>DISCLAIMER: While we make every effort to recover lost funds, success cannot be guaranteed in all cases. 
+                We provide investigative services only and are not law enforcement. All work is performed ethically and legally.</p>
             </div>
         </footer>
     </div>
