@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>516</title>
+    <title>516 Hackers</title>
 </head>
 
 <body>
@@ -16,20 +15,22 @@
             <div class="image"></div>
         </div>
         <h3>Muhammad Muzamil</h3>
-        <h3 class="title">HACKERS</h3>
-        <p>516 Hakers Group Not illegal Only Cyber Security & Bug Finder</p>
+        <h3 class="title">516 HACKERS</h3>
+        <p>516 Hackers Group - Not illegal. Only Cyber Security & Bug Finding</p>
         <div class="icons">
            <a href="https://www.facebook.com/profile.php?id=100089960097573"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/516_hackers"><i class="fa fa-instagram" aria-hidden="true"></i></a>
            <a href="https://www.youtube.com/channel/UCSW8o8mNjB8nYehdV4qcBYg"> <i class="fa fa-youtube" aria-hidden="true"></i></a>
            <a href="https://github.com/Hackers516/516"><i class="fa fa-github" aria-hidden="true"></i></a>
         </div>
+        <a href="#" class="join-btn">Join Our Community</a>
     </div>
 </body>
 
 </html>
+
 <style>
-  * {
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -40,23 +41,32 @@ body {
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .container {
-    height: 450px;
-    width: 300px;
-    box-shadow: 0 10px 20px black;
-    background-size: cover;
+    height: 500px;
+    width: 320px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background: white;
     justify-content: center;
     align-items: center;
     text-align: center;
     overflow: hidden;
     font-family: 'Abel', sans-serif;
+    border-radius: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .image {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     background-image: url('https://avatars.githubusercontent.com/u/125684516?v=4');
     background-size: cover;
     border-radius: 50%;
@@ -64,50 +74,85 @@ body {
     position: relative;
     top: 200px;
     margin-left: 170px;
-    box-shadow: 0 2px 15px rgb(58, 54, 54);
-    transform: rotate(-30deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: rotate(-20deg);
+    transition: all 0.3s ease;
 }
 
 .shape {
-    height: 250px;
-    width: 400px;
-    background-color: black;
+    height: 300px;
+    width: 450px;
+    background: linear-gradient(45deg, #000000 0%, #434343 100%);
     margin-left: -20px;
     position: relative;
     top: -80px;
-    box-shadow: 0 2px 15px black;
-    transform: rotate(25deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: rotate(20deg);
+    transition: all 0.3s ease;
 }
 
 h3 {
     margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: #333;
+    margin-top: 30px;
 }
 
 .title {
-    color: rgb(105, 100, 109);
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 p {
     padding-left: 30px;
     padding-right: 30px;
-    color: rgb(105, 100, 109);
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin-bottom: 25px;
 }
 
 .icons {
-    margin-top: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .icons i {
-    margin-left: 10px;
-    font-size: 20px;
-    transition: 0.3s;
-    color: rgb(40, 163, 194);
-    ;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    color: #3498db;
 }
 
 .icons i:hover {
-    transform: scale(1.1);
-    color: rgb(18, 192, 235);
+    transform: scale(1.2);
+    color: #2980b9;
+}
+
+.join-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #3498db, #2c3e50);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+    margin-top: 10px;
+}
+
+.join-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(41, 128, 185, 0.4);
+    background: linear-gradient(45deg, #2980b9, #1a252f);
 }
 </style>
