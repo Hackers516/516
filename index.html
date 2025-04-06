@@ -1,546 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>516 Hackers</title>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: #0a0a0a;
+            color: #00ff41;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+        }
+
+        /* Main Card Container */
+        .card {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid #00ff41;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3),
+                        inset 0 0 10px rgba(0, 255, 65, 0.2);
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0, 255, 65, 0.5),
+                        inset 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        /* Header Section */
+        .card-header {
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #00ff41;
+        }
+
+        /* Profile Image */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border: 3px solid #00ff41;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 15px #00ff41;
+            position: relative;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-img::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 1px solid #00ff41;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        /* Title */
+        .title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #00ff41;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px #00ff41;
+            position: relative;
+        }
+
+        .title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: #00ff41;
+            margin: 10px auto;
+            box-shadow: 0 0 5px #00ff41;
+        }
+
+        /* Content Section */
+        .card-content {
+            padding: 25px 20px;
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: #00ff88;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .description {
+            font-size: 0.9rem;
+            color: #00ff88;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 10px;
+            min-width: 80px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #00ff41;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #00ff88;
+            text-transform: uppercase;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #00ff41;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            color: #00ff41;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon:hover {
+            background: rgba(0, 255, 65, 0.1);
+            box-shadow: 0 0 15px #00ff41;
+            transform: translateY(-3px);
+        }
+
+        .social-icon i {
+            font-size: 1rem;
+        }
+
+        /* Button */
+        .join-btn {
+            display: block;
+            width: 80%;
+            max-width: 250px;
+            margin: 20px auto;
+            padding: 12px;
+            background: transparent;
+            color: #00ff41;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            border: 1px solid #00ff41;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .join-btn:hover {
+            background: rgba(0, 255, 65, 0.2);
+            box-shadow: 0 0 15px #00ff41;
+        }
+
+        .join-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.4), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .join-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Footer */
+        .card-footer {
+            padding: 15px 20px;
+            background: rgba(0, 20, 10, 0.5);
+            border-top: 1px solid #00ff41;
+            font-size: 0.8rem;
+            color: #00ff41;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.5; transform: scale(0.95); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .card {
+                max-width: 350px;
+            }
+            
+            .title {
+                font-size: 1.3rem;
+            }
+            
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                max-width: 100%;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+                letter-spacing: 2px;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .description {
+                font-size: 0.8rem;
+            }
+            
+            .stat-item {
+                min-width: 70px;
+            }
+            
+            .stat-value {
+                font-size: 1.3rem;
+            }
+            
+            .join-btn {
+                width: 90%;
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .title {
+                font-size: 1.1rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                margin: 5px 0;
+            }
+            
+            .social-icons {
+                margin: 15px 0;
+            }
+            
+            .social-icon {
+                margin: 5px;
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
 <body>
-    <div class="cyber-grid"></div>
-    <div class="container">
-        <div class="cyber-card">
-            <div class="cyber-header">
-                <div class="hexagon">
-                    <div class="hexagon-inner">
-                        <div class="image"></div>
-                    </div>
+    <div class="grid-bg"></div>
+    
+    <div class="card">
+        <div class="card-header">
+            <div class="profile-img">
+                <img src="https://avatars.githubusercontent.com/u/125684516?v=4" alt="Muhammad Muzamil">
+            </div>
+            <h1 class="title">516 HACKERS</h1>
+            <p class="subtitle">Muhammad Muzamil</p>
+        </div>
+        
+        <div class="card-content">
+            <p class="description">Ethical Cybersecurity Group<br>Bug Bounty | Penetration Testing | Security Research</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Legal</div>
                 </div>
-                <div class="glitch-effect" data-text="516_HACKERS">516_HACKERS</div>
-                <div class="scanline"></div>
+                <div class="stat-item">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Active</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">100+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
             </div>
             
-            <div class="cyber-content">
-                <h3 class="cyber-title">MUHAMMAD MUZAMIL</h3>
-                <p class="cyber-text">[ LEGITIMATE CYBER SECURITY GROUP ]<br>ETHICAL HACKING | BUG BOUNTY | PEN TESTING</p>
-                
-                <div class="cyber-stats">
-                    <div class="stat">
-                        <div class="stat-value">100%</div>
-                        <div class="stat-label">LEGAL</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">24/7</div>
-                        <div class="stat-label">ACTIVE</div>
-                    </div>
-                </div>
-                
-                <div class="cyber-social">
-                    <a href="https://www.facebook.com/profile.php?id=100089960097573" class="social-icon" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/516_hackers" class="social-icon" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCSW8o8mNjB8nYehdV4qcBYg" class="social-icon" target="_blank">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://github.com/Hackers516/516" class="social-icon" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-                
-                <a href="https://www.instagram.com/direct/t/17842209281948222" class="cyber-btn">
-                    <span>JOIN OUR NETWORK</span>
-                    <div class="btn-border btn-border-top"></div>
-                    <div class="btn-border btn-border-right"></div>
-                    <div class="btn-border btn-border-bottom"></div>
-                    <div class="btn-border btn-border-left"></div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100089960097573" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/516_hackers" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCSW8o8mNjB8nYehdV4qcBYg" class="social-icon" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://github.com/Hackers516/516" class="social-icon" target="_blank">
+                    <i class="fab fa-github"></i>
                 </a>
             </div>
             
-            <div class="cyber-footer">
-                <div class="terminal-line">
-                    <span class="prompt">root@516:~$</span>
-                    <span class="command">connect --secure --protocol=ethical</span>
-                    <span class="cursor">_</span>
-                </div>
-            </div>
+            <a href="https://www.instagram.com/direct/t/17842209281948222" target="_blank" class="join-btn">Join Our Community</a>
+        </div>
+        
+        <div class="card-footer">
+            <p>root@516:~$ Ethical hacking only - No illegal activities</p>
         </div>
     </div>
 </body>
-
 </html>
-
-<style>
-/* Base Styles */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #0a0a0a;
-    color: #00ff41;
-    font-family: 'Share Tech Mono', monospace;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Cyber Grid Background */
-.cyber-grid {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-    background-size: 20px 20px;
-    z-index: -1;
-}
-
-/* Main Container */
-.container {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    perspective: 1000px;
-}
-
-/* Cyber Card */
-.cyber-card {
-    background: rgba(10, 10, 10, 0.8);
-    border: 1px solid #00ff41;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3),
-                inset 0 0 10px rgba(0, 255, 65, 0.2);
-    overflow: hidden;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.cyber-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 25px rgba(0, 255, 65, 0.5),
-                inset 0 0 15px rgba(0, 255, 65, 0.3);
-}
-
-/* Header Section */
-.cyber-header {
-    position: relative;
-    padding: 30px 20px 50px;
-    text-align: center;
-    border-bottom: 1px solid #00ff41;
-}
-
-/* Hexagon Profile Image */
-.hexagon {
-    width: 120px;
-    height: 104px;
-    background-color: #00ff41;
-    position: relative;
-    margin: 0 auto 20px;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 15px #00ff41;
-}
-
-.hexagon-inner {
-    width: 110px;
-    height: 94px;
-    background-color: #0a0a0a;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image {
-    width: 100px;
-    height: 100px;
-    background-image: url('https://avatars.githubusercontent.com/u/125684516?v=4');
-    background-size: cover;
-    background-position: center;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-
-/* Glitch Effect */
-.glitch-effect {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    color: #00ff41;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: relative;
-    animation: glitch 2s infinite linear;
-}
-
-.glitch-effect::before,
-.glitch-effect::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.glitch-effect::before {
-    color: #ff00ff;
-    animation: glitch-effect 3s infinite;
-    z-index: -1;
-}
-
-.glitch-effect::after {
-    color: #00ffff;
-    animation: glitch-effect 2s infinite reverse;
-    z-index: -2;
-}
-
-/* Scanline Effect */
-.scanline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: rgba(0, 255, 65, 0.5);
-    animation: scanline 8s linear infinite;
-    box-shadow: 0 0 10px #00ff41;
-}
-
-/* Content Section */
-.cyber-content {
-    padding: 30px 20px;
-}
-
-.cyber-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
-    color: #00ff41;
-    text-align: center;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    text-shadow: 0 0 5px #00ff41;
-}
-
-.cyber-text {
-    font-size: 14px;
-    color: #00ff88;
-    text-align: center;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
-}
-
-/* Stats */
-.cyber-stats {
-    display: flex;
-    justify-content: space-around;
-    margin: 25px 0;
-}
-
-.stat {
-    text-align: center;
-}
-
-.stat-value {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 24px;
-    color: #00ff41;
-    margin-bottom: 5px;
-}
-
-.stat-label {
-    font-size: 12px;
-    color: #00ff88;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Social Icons */
-.cyber-social {
-    display: flex;
-    justify-content: center;
-    margin: 25px 0;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #00ff41;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
-    color: #00ff41;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.social-icon::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 255, 65, 0.2);
-    transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-    background: rgba(0, 255, 65, 0.1);
-    box-shadow: 0 0 15px #00ff41;
-    transform: translateY(-3px);
-}
-
-.social-icon:hover::before {
-    left: 100%;
-}
-
-.social-icon i {
-    font-size: 16px;
-}
-
-/* Cyber Button */
-.cyber-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: transparent;
-    color: #00ff41;
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 2px;
-    font-size: 14px;
-    margin: 20px auto;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-}
-
-.cyber-btn span {
-    position: relative;
-    z-index: 1;
-}
-
-.btn-border {
-    position: absolute;
-    background: #00ff41;
-    transition: all 0.3s ease;
-}
-
-.btn-border-top {
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-}
-
-.btn-border-right {
-    top: 0;
-    right: 0;
-    width: 1px;
-    height: 0;
-}
-
-.btn-border-bottom {
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 1px;
-}
-
-.btn-border-left {
-    bottom: 0;
-    left: 0;
-    width: 1px;
-    height: 0;
-}
-
-.cyber-btn:hover {
-    color: #0a0a0a;
-    text-shadow: 0 0 5px #00ff41;
-}
-
-.cyber-btn:hover .btn-border-top {
-    width: 100%;
-}
-
-.cyber-btn:hover .btn-border-right {
-    height: 100%;
-}
-
-.cyber-btn:hover .btn-border-bottom {
-    width: 100%;
-}
-
-.cyber-btn:hover .btn-border-left {
-    height: 100%;
-}
-
-.cyber-btn:hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #00ff41;
-    z-index: 0;
-    animation: btn-fill 0.5s forwards;
-}
-
-/* Footer Section */
-.cyber-footer {
-    padding: 15px 20px;
-    background: rgba(0, 20, 10, 0.5);
-    border-top: 1px solid #00ff41;
-}
-
-.terminal-line {
-    font-size: 12px;
-    color: #00ff41;
-    font-family: 'Share Tech Mono', monospace;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4s steps(40) 1s forwards;
-    width: 0;
-}
-
-.prompt {
-    color: #00ff88;
-}
-
-.command {
-    color: #00ff41;
-}
-
-.cursor {
-    animation: blink 1s infinite;
-}
-
-/* Animations */
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
-}
-
-@keyframes glitch-effect {
-    0% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    20% { transform: translate(-5px, 5px); clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%); }
-    40% { transform: translate(5px, -5px); clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%); }
-    60% { transform: translate(-5px, 5px); clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0 100%); }
-    80% { transform: translate(5px, -5px); clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%); }
-    100% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-}
-
-@keyframes scanline {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(100vh); }
-}
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-@keyframes btn-fill {
-    0% { transform: translateY(100%); }
-    100% { transform: translateY(0); }
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
-    }
-    
-    .cyber-header {
-        padding: 20px 15px 40px;
-    }
-    
-    .hexagon {
-        width: 100px;
-        height: 87px;
-    }
-    
-    .hexagon-inner {
-        width: 90px;
-        height: 77px;
-    }
-    
-    .image {
-        width: 85px;
-        height: 85px;
-    }
-    
-    .glitch-effect {
-        font-size: 20px;
-    }
-    
-    .cyber-title {
-        font-size: 16px;
-    }
-    
-    .cyber-text {
-        font-size: 13px;
-    }
-    
-    .stat-value {
-        font-size: 20px;
-    }
-    
-    .stat-label {
-        font-size: 11px;
-    }
-    
-    .cyber-btn {
-        padding: 10px 25px;
-        font-size: 13px;
-    }
-    
-    .terminal-line {
-        font-size: 11px;
-    }
-}
-
-@media (max-width: 360px) {
-    .cyber-social {
-        flex-wrap: wrap;
-    }
-    
-    .social-icon {
-        margin: 5px;
-    }
-}
-</style>
